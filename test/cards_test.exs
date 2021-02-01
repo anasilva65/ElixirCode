@@ -4,5 +4,7 @@ defmodule CardsTest do
 
   test "greets the world" do
     assert Cards.hello() == :world
+
+    assert Cards.shuffle(deck) == ["Ace", "Two", "Three"]
   end
 end
