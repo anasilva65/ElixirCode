@@ -39,8 +39,6 @@ defmodule Cards do
   ["Ace of Spades"]
   """
 
-
-
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
