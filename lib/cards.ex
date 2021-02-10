@@ -1,54 +1,56 @@
 defmodule Cards do
   @moduledoc """
-  Provides methods for creating and handling a deck of cards
+    Provides methods for creating and handling a deck of cards
   """
   @doc """
-  Returns a list of strings representing a deck of playing cards
+    Returns a list of strings representing a deck of playing cards
   """
   def create_deck do
       values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
     cards = for value <- values do
-    for suit <- suits do
-      "#{value} of #{suit}"
+      for suit <- suits do
+        "#{value} of #{suit}"
 
+      end
     end
   end
 
-  List.flatten(cards)
-  end
-
-
   def shuffle(deck) do
     Enum.shuffle(deck)
-      end
+  end
 
-      @doc """ Determines whether a deck contains a given card
+  @doc """
+    Determines whether a deck contains a given card.
+    E ele retorna true or false
 
-      ##Examples
-      iex> deck = Cards.create_deck
-      iex> Cards.contains?(deck, "Ace of Spades")
-      true
-      """
-
+    ##Examples
+    iex> deck = Cards.create_deck
+    iex> Cards.contains?(deck, "Ace of Spades")
+    true
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
 
   @doc """
-  Divides a deck into a hand and the remainder of the deck.
-  The `hand_size` argument indicates how many cards should
+    Divides a deck into a hand and the remainder of the deck.
+    The `hand_size` argument indicates how many cards should
 
-  ##Examples
-  iex> deck = Cards.create_deck
-  iex> {hand, deck} = Cards.deal(deck, 1)
-  iex> hand
-  ["Ace of Spades"]
+    ##Examples
+    iex> deck = Cards.create_deck
+    iex> {hand, deck} = Cards.deal(deck, 1)
+    iex> hand
+    ["Ace of Spades"]
   """
 
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
+  end
+
+  def deal (deck) do
+    {deck, []}
   end
 
   def save(deck, filename) do
