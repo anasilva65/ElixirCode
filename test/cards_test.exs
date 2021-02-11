@@ -7,14 +7,19 @@ defmodule CardsTest do
     assert deck_length == 20
   end
 
-  test "verificar se realmente o deck está sendo embaralhado aleatoriamente" do
-    deck = Cards.create_deck
-    assert deck != Cards.shuffle(deck)
-  end
+  #test "verificar se realmente o deck está sendo embaralhado aleatoriamente" do
+    #deck = Cards.create_deck
+    #assert deck != Cards.shuffle(deck)
+  #end
 
   test "verificar se realmente o deck está sendo embaralhado aleatoriamente" do
     deck = Cards.create_deck
     refute deck == Cards.shuffle(deck)
+  end
+
+  test "Determina se o baralho contém uma determinada carta." do
+    deck = Cards.create_deck
+    assert deck = Cards.contains?(deck, "Ace of Spades")
   end
 
 end
