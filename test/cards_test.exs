@@ -9,7 +9,7 @@ defmodule CardsTest do
 
   test "verificar se realmente o deck está sendo embaralhado aleatoriamente" do
     deck = Cards.create_deck
-    refute deck == Cards.shuffle(deck)
+    assert deck != Cards.shuffle(deck)
   end
 
 end
