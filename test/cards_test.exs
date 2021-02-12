@@ -22,4 +22,8 @@ defmodule CardsTest do
     assert deck = Cards.contains?(deck, "Ace of Spades")
   end
 
+  test "verificar se está dividindo o baralho, e fazendo a correspondencia para atribuicao de variavel " do
+    deck = Cards.create_deck
+    assert {hand, deck} = Cards.deal(deck, 2)
+  end
 end
