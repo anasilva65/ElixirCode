@@ -24,6 +24,19 @@ defmodule CardsTest do
 
   test "verificar se está dividindo o baralho, e fazendo a correspondencia para atribuicao de variavel " do
     deck = Cards.create_deck
-    assert {hand, deck} = Cards.deal(deck, 2)
+    assert Enum.split(deck, 5) == Cards.deal(deck, 5)
   end
+
+  test "verificar que nao esta dividindo quando so passo o deck" do
+    deck = Cards.create_deck
+    assert {deck, []} == Cards.deal(deck)
+  end
+
+  test "verificar que esta salvando o deck" do
+    deck = Cards.create_deck
+    binary = :erlang.term_to_binary(deck)
+    assert :ok == File.write("filename", binary)
+  end
+
+
 end
