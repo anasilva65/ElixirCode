@@ -38,5 +38,10 @@ defmodule CardsTest do
     assert :ok == File.write("filename", binary)
   end
 
+  test "se esy" do
+    deck = Cards.create_deck
+    assert deck != Cards.load("my_deck")
+  end
+
 
 end
