@@ -38,7 +38,7 @@ defmodule CardsTest do
     assert :ok == File.write("filename", binary)
   end
 
-  test "se esy" do
+  test "verificar se o arquivo carregado do disco rigido é diferente do deck" do
     deck = Cards.create_deck
     assert deck != Cards.load("my_deck")
   end
